@@ -60,6 +60,7 @@ class UsersController extends Controller
     //发送邮件
     public function sendEmailConfirmationTo($user)
     {
+        // var_dump(333);exit;
         $view = 'emails.confirm';
         $data = compact('user');
         $from = '2860351416@qq.com';
@@ -73,7 +74,7 @@ class UsersController extends Controller
     }
 
     //激活功能
-     public function confirmEmail($token)
+      public function confirmEmail($token)
     {
         $user = User::where('activation_token', $token)->firstOrFail();
 

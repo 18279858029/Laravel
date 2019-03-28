@@ -26,11 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public static function boot()
-    {
-        parent::boot();
-        static::creating(function ($user) {
-            $user->activation_token = str_random(30);
-        });
-    }
 }
